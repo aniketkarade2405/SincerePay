@@ -13,7 +13,7 @@ public class ExcelCode {
 		String data;
 		
 		FileInputStream excel = new FileInputStream("C:\\Users\\ADMIN\\eclipse-workspace\\sincerpay\\Excel\\Data.xlsx");
-		Sheet Inputdata = (Sheet)WorkbookFactory.create(excel).getSheet("Sheet1");
+		Sheet Inputdata = WorkbookFactory.create(excel).getSheet("Sheet1");
 		
 		try {
 			data = Inputdata.getRow(row).getCell(cell).getStringCellValue();

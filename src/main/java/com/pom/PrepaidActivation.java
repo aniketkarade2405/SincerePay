@@ -19,12 +19,18 @@ public class PrepaidActivation {
 	
 	@FindBy(id="OperatorID")
 	private WebElement ClickOnSelectOperatprButton;
-		
-	@FindBy(xpath="//ul[@role='listbox']/li")
-	private List<WebElement> dropdownElements;
+	
+	@FindBy(xpath="//li[@data-value=\"14\"]")
+	private WebElement selectAirtel;
 	
 	@FindBy(id="ActivationType")
 	private WebElement clickOnActivationTypeButton;
+	
+	@FindBy(xpath="//li[@data-value=\"NewConnection\"]")
+	private WebElement selectNewConnection;
+		
+//	@FindBy(xpath="//ul[@role='listbox']/li")
+//	private List<WebElement> dropdownElements;
 	
 	@FindBy(name="AlternateNumber")
 	private WebElement AlternateMobileNumber;
@@ -41,12 +47,11 @@ public class PrepaidActivation {
 	@FindBy(xpath="(//span[@class=\"MuiButton-label-495\"])[2]")
 	private WebElement request;
 	
+	@FindBy(xpath="(//span[@class=\"MuiButton-label-495\"])[5]")
+	private WebElement yesDoTransaction;
+	
 	@FindBy(xpath="(//span[@class=\"MuiButton-label-495\"])[3]")
 	private  WebElement reset;
-	
-	
-	
-	
 	
 	public PrepaidActivation(WebDriver driver) {
 		PageFactory.initElements(driver,this);
@@ -61,17 +66,24 @@ public class PrepaidActivation {
 	public void clickOnSelectOperatorButton() {
 		ClickOnSelectOperatprButton.click();
 	}
-	public List<WebElement> getDropdownElements() {
-		List<WebElement> elements = dropdownElements;
-		for(WebElement element: elements) {
-			System.out.println(element.getText());
-		}
-		System.out.println(elements);
-		return elements;
+	public void clickOnAirtel() {
+		selectAirtel.click();
 	}
 	public void clickOnActivationType() {
 		clickOnActivationTypeButton.click();
 	}
+	public void clickOnNewConnection() {
+		selectNewConnection.click();
+	}
+//	public List<WebElement> getDropdownElements() {
+//		List<WebElement> elements = dropdownElements;
+//		for(WebElement element: elements) {
+//			System.out.println(element.getText());
+//		}
+//		System.out.println(elements);
+//		return elements;
+//	}
+	
 	public void setAlternateMobileNumber (String number) {
 		AlternateMobileNumber.sendKeys(number);
 	}
@@ -86,6 +98,9 @@ public class PrepaidActivation {
 	}
 	public void clickOnRequest() {
 		request.click();
+	}
+	public void clickOnYesDoTransaction() {
+		yesDoTransaction.click();
 	}
 	public void clickOnReset() {
 		reset.click();

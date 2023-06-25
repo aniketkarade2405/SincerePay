@@ -16,12 +16,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.v111.profiler.model.Profile;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -34,8 +36,25 @@ import com.utility.ScreenshotCode;
 public class OfflineBooking extends Base_Class  {
 	
 	@BeforeTest
-	 public void openbrowser() {
-		 driver = Base_Class.initialization();
+	@Parameters("Browser")
+	 public void openbrowser(String browser) throws InterruptedException {
+		if(browser.equalsIgnoreCase("chrome")) {
+			 driver = Base_Class.openChromebrowser();
+			 Thread.sleep(1000);
+			 System.out.println("chrome is launched successfully");
+		} 
+		else if (browser.equalsIgnoreCase("edge")) {
+			 driver = Base_Class.openEdgebrowser();
+			 Thread.sleep(1000);
+
+			 System.out.println("edge is launched successfully");
+		}
+		else if(browser.equalsIgnoreCase("firefox")) {
+			driver = Base_Class.openFirefoxbrowser();
+			 Thread.sleep(1000);
+
+			System.out.println("firefox is launched successfully");
+		}
 		 driver.get("https://sincerepay.co.in/Login");
 		 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		 
