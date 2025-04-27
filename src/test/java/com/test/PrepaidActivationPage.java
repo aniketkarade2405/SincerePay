@@ -25,21 +25,21 @@ import com.utility.ScreenshotCode;
 public class PrepaidActivationPage extends Base_Class {
 	@BeforeTest
 	@Parameters("Browser")
-	 public void openbrowser(String browser) throws InterruptedException {
+	 public void openbrowser(String browser) {
 		if(browser.equalsIgnoreCase("chrome")) {
 			 driver = Base_Class.openChromebrowser();
-			 Thread.sleep(1000);
+			 
 			 System.out.println("chrome is launched successfully");
 		} 
 		else if (browser.equalsIgnoreCase("edge")) {
 			 driver = Base_Class.openEdgebrowser();
-			 Thread.sleep(1000);
+		//	 Thread.sleep(1000);
 
 			 System.out.println("edge is launched successfully");
 		}
 		else if(browser.equalsIgnoreCase("firefox")) {
 			driver = Base_Class.openFirefoxbrowser();
-			 Thread.sleep(1000);
+		//	 Thread.sleep(1000);
 
 			System.out.println("firefox is launched successfully");
 		}
@@ -62,7 +62,7 @@ public class PrepaidActivationPage extends Base_Class {
 	 }
 		 
 	 @Test
-	 public void verifyPrepaidActivation() throws InterruptedException, EncryptedDocumentException, IOException {
+	 public void verifyPrepaidActivation() throws  EncryptedDocumentException, IOException {
 		 SoftAssert soft = new SoftAssert();
 		 PrepaidActivation PA = new PrepaidActivation(driver);
 		 PA.clickServicesButton();

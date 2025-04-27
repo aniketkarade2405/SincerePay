@@ -51,14 +51,4 @@ public class Listeners extends Base_Class implements ITestListener {
 		   extent.flush();
 	}
 
-	
-
-	
-
-	
-
-	
-	
-	   
-
 }

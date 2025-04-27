@@ -7,6 +7,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Login {
 	WebDriver driver;
+	public Login(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
 
 	
 	@FindBy(name="UserName")
@@ -18,9 +21,7 @@ public class Login {
 	@FindBy(xpath="//span[@class=\"MuiButton-label-271\"]")
 	private WebElement loginbutton;
 	
-	public Login(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-	}
+	
 	
 	public void putuser(String userName) {
 		username.sendKeys(userName);
